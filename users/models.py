@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from categories import models as category_models
 
 
 class User(AbstractUser):
@@ -26,5 +27,18 @@ class User(AbstractUser):
     preference = models.CharField(choices=PREFERENCE_CHOICES, max_length=10, null=True)
     bio = models.TextField(default="")
     language = models.CharField(choices=LANGUAGE_CHOICES, max_length=2, null=True)
-    favourite_book_genre = models.CharField(max_length=15, null=True)
-    favourite_movie_genre = models.CharField(max_length=15, null=True)
+    favourite_book_genre = models.ForeignKey(
+        category_models.Category,
+        on_delete=models.CASCADE,
+        null=True,
+        related_name="fav_book_genre",
+    )
+    favourite_movie_genre = models.ForeignKey(
+        category_models.Category,
+        on_delete=models.CASCADE,
+        null=True,
+        related_name="fav_movie_genre",
+    )
+
+    def __str__(self):
+        return self.username
