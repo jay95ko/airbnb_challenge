@@ -2,7 +2,7 @@ from django.db import models
 from core import models as core_models
 
 
-class Preson(core_models.TimeStampedModel):
+class Person(core_models.TimeStampedModel):
 
     KIND_ACTOR = "actor"
     KIND_DIRECTOR = "director"

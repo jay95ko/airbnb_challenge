@@ -19,5 +19,8 @@ class Review(core_models.TimeStampedModel):
     )
     rating = models.DecimalField(max_digits=5, decimal_places=2)
 
+    def __str__(self):
+        return self.text
+
     class Meta:
-        verbose_name_plural = "People"
+        verbose_name_plural = "Review"

@@ -13,5 +13,5 @@ class FavList(core_models.TimeStampedModel):
     books = models.ManyToManyField(book_models.Book, blank=True)
     movies = models.ManyToManyField(movie_models.Movie, blank=True)
 
-    class Meta:
-        verbose_name = "Favorite List"
+    def __str__(self):
+        return f"{self.created_by}'s Fav List'"

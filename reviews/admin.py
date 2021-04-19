@@ -5,12 +5,6 @@ from . import models
 @admin.register(models.Review)
 class ReviewAdmin(admin.ModelAdmin):
 
-    list_display = (
-        "text",
-        "rating",
-    )
+    list_display = ("created_by", "movie", "book", "rating")
 
-    list_filter = (
-        "text",
-        "rating",
-    )
+    list_filter = ("movie", "book")

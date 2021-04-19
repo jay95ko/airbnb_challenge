@@ -6,5 +6,3 @@ from . import models
 class FavListAdmin(admin.ModelAdmin):
 
     list_display = ("created_by",)
-
-    list_filter = ("created_by",)

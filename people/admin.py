@@ -2,17 +2,12 @@ from django.contrib import admin
 from . import models
 
 
-@admin.register(models.Preson)
+@admin.register(models.Person)
 class PersonAdmin(admin.ModelAdmin):
 
     list_display = (
         "name",
         "kind",
-        "photo",
     )
 
-    list_filter = (
-        "name",
-        "kind",
-        "photo",
-    )
+    list_filter = ("kind",)
