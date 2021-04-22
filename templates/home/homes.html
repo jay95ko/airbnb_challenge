@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block page_name %} Home {% endblock page_name %}
+{% block content %}
+
+<div>
+    <h5> User </h5>
+    {%for person in people.object_list %}
+    <h3>{{person.name}} // {{person.kind}}</h3>
+    {%endfor%}
+    <h5>
+        {% if people.has_previous %}
+        <a href="?page1={{people.previous_page_number}}&page2={{movie_page}}&page3={{book_page}}">⏪</a>
+        {% endif %}
+
+        Page {{people.number}} of {{people.paginator.num_pages}}
+
+        {% if people.has_next %}
+        <a href="?page1={{people.next_page_number}}&page2={{movie_page}}&page3={{book_page}}">⏩</a>
+        {% endif %}
+    </h5>
+</div>
+
+<div>
+    <h5> Movie </h5>
+    {%for movie in movies.object_list %}
+    <h3>{{movie.title}} // {{movie.director}}</h3>
+    {%endfor%}
+    <h5>
+        {% if movies.has_previous %}
+        <a href="?page1={{person_page}}&page2={{movies.previous_page_number}}&page3={{book_page}}">⏪</a>
+        {% endif %}
+
+        Page {{movies.number}} of {{movies.paginator.num_pages}}
+
+        {% if movies.has_next %}
+        <a href="?page1={{person_page}}&page2={{movies.next_page_number}}&page3={{book_page}}">⏩</a>
+        {% endif %}
+    </h5>
+</div>
+
+<div>
+    <h5> Book </h5>
+    {%for book in books.object_list %}
+    <h3>{{book.title}} // {{book.writer}}</h3>
+    {%endfor%}
+    <h5>
+        {% if books.has_previous %}
+        <a href="?page1={{person_page}}&page2={{movie_page}}&page3={{books.previous_page_number}}">⏪</a>
+        {% endif %}
+
+        Page {{books.number}} of {{books.paginator.num_pages}}
+
+        {% if books.has_next %}
+        <a href="?page1={{person_page}}&page2={{movie_page}}&page3={{books.next_page_number}}">⏩</a>
+        {% endif %}
+    </h5>
+</div>
+{% endblock content %}
