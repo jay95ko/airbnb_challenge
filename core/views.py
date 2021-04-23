@@ -7,8 +7,8 @@ from people import models as person_models
 # Create your views here.
 def home(request):
     person_page = request.GET.get("page1", 1)
-    person_list = person_models.Person.objects.all()
-    paginator_person = Paginator(person_list, 5, orphans=2)
+    person_list = person_models.Person.objects.all().order_by("pk")
+    paginator_person = Paginator(person_list, 10, orphans=2)
     try:
         people = paginator_person.page(int(person_page))
     except PageNotAnInteger:
@@ -19,8 +19,8 @@ def home(request):
         return redirect("/")
 
     movie_page = request.GET.get("page2", 1)
-    movie_list = movie_models.Movie.objects.all()
-    paginator_movie = Paginator(movie_list, 5, orphans=2)
+    movie_list = movie_models.Movie.objects.all().order_by("pk")
+    paginator_movie = Paginator(movie_list, 10, orphans=2)
     try:
         movies = paginator_movie.page(int(movie_page))
     except PageNotAnInteger:
@@ -31,8 +31,8 @@ def home(request):
         return redirect("/")
 
     book_page = request.GET.get("page3", 1)
-    book_list = book_models.Book.objects.all()
-    paginator_book = Paginator(book_list, 5, orphans=2)
+    book_list = book_models.Book.objects.all().order_by("pk")
+    paginator_book = Paginator(book_list, 10, orphans=2)
     try:
         books = paginator_book.page(int(book_page))
     except PageNotAnInteger:

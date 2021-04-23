@@ -1,8 +1,8 @@
 from django.urls import path
 from books import views as book_views
 
-app_name = "book"
+app_name = "books"
 
 urlpatterns = [
-    path("", book_views.books, name="books"),
+    path("", book_views.HomeView.as_view(), name="books"),
 ]

@@ -4,7 +4,7 @@
 {% block content %}
 
 <div>
-    <h5> User </h5>
+    <a href="/people" style="font-size: 20pt;">Poeple</a>
     {%for person in people.object_list %}
     <h3>{{person.name}} // {{person.kind}}</h3>
     {%endfor%}
@@ -22,7 +22,7 @@
 </div>
 
 <div>
-    <h5> Movie </h5>
+    <a href="/movies" style="font-size: 20pt;">Movie</a>
     {%for movie in movies.object_list %}
     <h3>{{movie.title}} // {{movie.director}}</h3>
     {%endfor%}
@@ -40,7 +40,7 @@
 </div>
 
 <div>
-    <h5> Book </h5>
+    <a href="/books" style="font-size: 20pt;">Book</a>
     {%for book in books.object_list %}
     <h3>{{book.title}} // {{book.writer}}</h3>
     {%endfor%}
