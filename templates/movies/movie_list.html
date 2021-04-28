@@ -3,7 +3,9 @@
 {% block content %}
 <h1>Movie</h1>
 {%for movie in movies %}
-<h3>{{movie.title}} // {{movie.director}}</h3>
+<h3>
+    <a href="{% url "movies:movie_detail" movie.pk %}"</a>
+        {{movie.title}} // {{movie.director}}</h3>
 {%endfor%}
 <h5>
     {% if page_obj.has_previous %}
@@ -16,4 +18,7 @@
     <a href="?page={{page_obj.next_page_number}}">⏩</a>
     {% endif %}
 </h5>
+<div>
+    <a href="{% url 'movies:movie_create'%}">Create Movie</a>
+</div>
 {% endblock content %}

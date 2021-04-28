@@ -3,7 +3,9 @@
 {% block content %}
 <h1>Book</h1>
 {%for book in books %}
-<h3>{{book.title}} // {{book.writer}}</h3>
+<h3>
+    <a href="{% url "books:book_detail" book.pk %}"</a>
+        {{book.title}} // {{book.writer}}</h3>
 {%endfor%}
 <h5>
     {% if page_obj.has_previous %}
@@ -16,4 +18,7 @@
     <a href="?page={{page_obj.next_page_number}}">⏩</a>
     {% endif %}
 </h5>
+<div>
+    <a href="{% url 'books:book_create'%}">Create Book</a>
+</div>
 {% endblock content %}

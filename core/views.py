@@ -54,7 +54,3 @@ def home(request):
             "people": people,
         },
     )
-
-
-def search(request):
-    return render(request, "search/search.html")

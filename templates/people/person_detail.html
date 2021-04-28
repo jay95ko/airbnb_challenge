@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+
+{% block page_title %}
+{{person.name}}
+{% endblock page_title %}
+
+{% block content %}
+<div>
+    <h1>{{person.name}} is {{person.kind}}</h1>
+    <div>{{person.photo}}
+        <img src="{{person.photo}}">
+    </div>
+</div>
+<div>
+    <a href="{% url 'people:person_edit' person.pk %}">Edit Person</a>
+</div>
+{% endblock %}

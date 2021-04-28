@@ -3,7 +3,9 @@
 {% block content %}
 <h1>People</h1>
 {%for person in people %}
-<h3>{{person.name}} // {{person.kind}}</h3>
+<h3>
+    <a href="{% url "people:person_detail" person.pk %}"</a>
+        {{person.name}} // {{person.kind}}</h3>
 {%endfor%}
 <h5>
     {% if page_obj.has_previous %}
@@ -16,4 +18,7 @@
     <a href="?page={{page_obj.next_page_number}}">⏩</a>
     {% endif %}
 </h5>
+<div>
+    <a href="{% url 'people:person_create'%}">Create Person</a>
+</div>
 {% endblock content %}

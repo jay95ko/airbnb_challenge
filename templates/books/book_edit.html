@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+    Update Book
+{% endblock page_title %}
+
+{% block content %}
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {% if form.non_field_errors %}
+    {% for error in form.non_field_errors %}
+    <span>{{error}}</span>
+    {% endfor %}
+    {% endif %}
+
+    {% for field in form %}
+    <div class="{% if field.errors %}has_error{% endif %}">
+        {{field.label}}
+        {{field}}
+        {% if field.errors %}
+            {% for error in field.errors %}
+            <span >{{error}}</span>
+            {% endfor %}
+        {% endif %}
+    </div>
+    {% endfor %}
+
+    <button>Edit</button>
+</form>
+{% endblock content %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+
+{% block page_title %}
+{{movie.title}}
+{% endblock page_title %}
+
+{% block content %}
+<div>
+    <h1>{{movie.title}}</h1>
+    <h3>Direct by {{movie.director}}</h3>
+    <h2>Category : {{movie.category}}</h2>
+    <h2>Directed in : {{movie.year}}</h2>
+    <h2>Rating : {{movie.rating}}</h2>
+    <h2>Casting</h2>
+    <ul>
+        {% for a in movie.cast.all %}
+        <li>{{a}}</li>
+        {% endfor %}
+    </ul>
+    <div>{{movie.cover_image}}
+        <img src="{{movie.cover_image}}">
+    </div>
+    
+    <div>
+        <a href="{% url 'movies:movie_edit' movie.pk %}">Edit Movie</a>
+    </div>
+</div>
+{% endblock %}

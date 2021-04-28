@@ -23,9 +23,6 @@ urlpatterns = [
     path("movies/", include("movies.urls", namespace="movies")),
     path("people/", include("people.urls", namespace="poeple")),
     path("genres/", include("categories.urls", namespace="genres")),
+    path("users/", include("users.urls", namespace="users")),
     path("admin/", admin.site.urls),
 ]
-
-""" 
-    
-    """
