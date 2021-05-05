@@ -1,0 +1,15 @@
+<div class="w-1/4 px-2">
+    <a href="{% url 'movies:detail' movie.pk %}">
+        <div class="w-full h-48 bg-cover bg-center rounded-lg mb-2" style="background-image: url({{movie.cover_image.url}});"></div>
+        <div class="flex justify-between text-sm">
+            <div class="w-4/5 flex flex-col overflow-hidden">
+                <div class="overflow-hidden truncate">{{movie.title}}</div>
+                <span >{{movie.year.year}}</span>
+                <div class="overflow-hidden">{{movie.director}}</div>
+            </div>
+            <span class="text-sm flex items-center">
+                <i class="fas fa-star text-red-500"></i>{{movie.rating}}
+            </span>
+        </div>            
+    </a>
+</div>

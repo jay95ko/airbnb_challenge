@@ -36,6 +36,7 @@ class Command(BaseCommand):
                 "writer": lambda x: random.choice(people),
             },
         )
+
         seeder.execute()
 
         self.stdout.write(self.style.SUCCESS(f"{total} {NAME} created!"))

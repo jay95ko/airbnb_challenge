@@ -5,7 +5,9 @@ from . import models
 class LoginForm(forms.ModelForm):
     class Meta:
         model = models.User
-        fields = ("email", "password")
+        fields = ("email",)
+
+    password = forms.CharField(widget=forms.PasswordInput)
 
     def clean(self):
         email = self.cleaned_data.get("email")

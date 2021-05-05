@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+    Update Profile
+{% endblock page_title %}
+
+{% block search-bar %}
+{% endblock search-bar %}
+
+{% block content %}
+
+    <div>
+    {% for field in form %}
+    <div>{{field}}</div>
+    {% endfor %}
+        
+        <a href="{% url 'users:password' %}" class="text-teal-500 font-medium">Change Password</a>
+        </div>
+    </div>
+{% endblock content %} 

@@ -15,14 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+from core import views as core_views
 
 urlpatterns = [
     path("", include("core.urls", namespace="core")),
-    path("search/", include("core.urls", namespace="search")),
+    path("search/", core_views.SearchView.as_view(), name="search"),
     path("books/", include("books.urls", namespace="books")),
     path("movies/", include("movies.urls", namespace="movies")),
     path("people/", include("people.urls", namespace="poeple")),
-    path("genres/", include("categories.urls", namespace="genres")),
+    path("category/", include("categories.urls", namespace="category")),
     path("users/", include("users.urls", namespace="users")),
     path("admin/", admin.site.urls),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

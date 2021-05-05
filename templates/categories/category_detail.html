@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block page_name %} Search {% endblock page_name %}
+{% block content %}
+<div class="container lg:w-5/12 md:w-1/2 xl:w-1/4 mx-auto my-10 flex flex-col items-center border p-6 border-gray-400"> 
+    <div>
+        <div class="text-3xl items-start flex font-bold">{{category.kind}}</div>
+        
+        <div class="mt-2">
+            {% for a in category.books.all %}
+            <div><a href="{%url 'books:detail' a.pk %}">{{a}} - Book</a></div>
+            {% endfor %}
+            {% for a in category.movies.all %}
+            <div><a href="{%url 'movies:detail' a.pk %}">{{a}} - Movie</a></div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,8 +1,10 @@
+from django.views.generic import View, ListView
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from books import models as book_models
 from movies import models as movie_models
 from people import models as person_models
+from categories import models as category_models
 
 # Create your views here.
 def home(request):
@@ -54,3 +56,10 @@ def home(request):
             "people": people,
         },
     )
+
+
+class SearchView(ListView):
+    model = category_models.Category
+    paginate_by = 10
+    paginate_orphans = 5
+    context_object_name = "categories"

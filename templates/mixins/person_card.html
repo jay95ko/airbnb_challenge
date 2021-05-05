@@ -1,0 +1,9 @@
+<div class="w-1/4 px-2">
+    <a href="{% url 'people:detail' person.pk %}">
+        <div class="w-full h-48 bg-cover bg-center rounded-lg mb-2" style="background-image: url({{person.photo.url}});"></div>
+            <div class="flex flex-col justify-items-center text-sm">
+                <span>{{person.name}}</span>
+                <span>{{person.kind}}</span>
+            </div>
+    </a>
+</div>

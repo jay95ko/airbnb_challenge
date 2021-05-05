@@ -1,6 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from categories import models as category_models
+from django.shortcuts import reverse
 
 
 class User(AbstractUser):
@@ -50,3 +51,6 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.username
+
+    def get_absolute_url(self):
+        return reverse("users:profile", kwargs={"pk": self.pk})

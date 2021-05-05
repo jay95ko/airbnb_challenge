@@ -8,7 +8,7 @@ from people import models as people_models
 class Movie(core_models.TimeStampedModel):
     title = models.CharField(max_length=50)
     year = models.DateField()
-    cover_image = models.ImageField(blank=True)
+    cover_image = models.ImageField(upload_to="cover_img", blank=True, null=True)
     rating = models.DecimalField(max_digits=5, decimal_places=2)
     category = models.ForeignKey(
         "categories.Category", on_delete=models.CASCADE, related_name="movies"
@@ -24,7 +24,7 @@ class Movie(core_models.TimeStampedModel):
     )
 
     def get_absolute_url(self):
-        return reverse("movies:movie_detail", kwargs={"pk": self.pk})
+        return reverse("movies:detail", kwargs={"pk": self.pk})
 
     def __str__(self):
         return self.title
